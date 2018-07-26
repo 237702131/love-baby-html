@@ -28,6 +28,7 @@
 
     <script src="js/html5-trunk.js"></script>
     <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jquery-form/form@4.2.2/dist/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
 
     <link href="icomoon/style.css" rel="stylesheet">
@@ -72,7 +73,7 @@
             <div class="actions">
                 <button type="submit" id="btnSubmit" class="btn btn-danger">Login</button>
                 <a class="link" href="#">Forgot Password?</a>
-                <div class="clearfix"></div>
+                <div class="clearfix" style="color: red"></div>
             </div>
         </form>
     </div>
@@ -86,7 +87,7 @@
                 var date = new Date();
                 date.setTime(date.getTime() + (1 * 30 * 24 * 60 * 60 * 1000));//一个月
                 $.cookie('token', data.data.token, {path: "/", expires: date});
-                window.location.replace("/index.html");
+                window.location.replace("index.html");
             } else {
                 $(".clearfix").html(data.message);
             }
