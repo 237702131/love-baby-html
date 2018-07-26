@@ -1439,18 +1439,11 @@
 
 <script type="application/javascript">
     $(document).ready(function () {
-        alert($.cookie('token'));
         $.ajax({
             type: "GET",
-            url:host+"/user/userInfo",
-            datatype: "json",
-            async: false,
+            url: host + "/user/userInfo",
             success: function (data) {
-                if (data.code == 200) {
 
-                } else {
-                    window.location = "login.html";
-                }
             },
             beforeSend: function (request) {
                 request.setRequestHeader("token", $.cookie('token'));
@@ -1459,10 +1452,11 @@
 
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                window.location = "login.html";
+                console.log(JSON.stringify(XMLHttpRequest));
             }
         });
     });
+
 </script>
 </body>
 </html>
